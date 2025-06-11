@@ -5,7 +5,7 @@ export default function BookingScreen({ navigate }) {
   return (
     <View style={styles.screenContainer}>
       <Text style={styles.screenTitle}>Book a Carwash</Text>
-      <Text style={styles.screenText}>Booking functionality coming soon.</Text>
+      <Text style={styles.screenText}>Booking  coming soon.</Text>
       <TouchableOpacity style={styles.button} onPress={() => navigate('Home')}>
         <Text style={styles.buttonText}>Back to Home</Text>
       </TouchableOpacity>
