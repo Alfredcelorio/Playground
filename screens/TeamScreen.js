@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import FeatherIcon from '@expo/vector-icons/Feather';
+import { mainStyles } from '../styles/MainStyles';
 
 const team = [
   { name: 'Eliezer', role: 'Washer' },
@@ -8,8 +9,10 @@ const team = [
 
 export default function TeamScreen({ navigate }) {
   return (
-    <View style={styles.screenContainer}>
-      <Text style={styles.screenTitle}>Our Team</Text>
+    <View style={mainStyles.screenContainer}>
+      <View style={mainStyles.titleRow}>
+        <Text style={mainStyles.mainTitle}>Our Team</Text>
+      </View>
       {team.map((member, idx) => (
         <View key={idx} style={styles.teamMember}>
           <FeatherIcon name="user" color="#bbb" size={16} />
@@ -17,27 +20,15 @@ export default function TeamScreen({ navigate }) {
           <Text style={styles.teamMemberRole}>{member.role}</Text>
         </View>
       ))}
-      <TouchableOpacity style={styles.button} onPress={() => navigate('Home')}>
-        <Text style={styles.buttonText}>Back to Home</Text>
+      <TouchableOpacity style={mainStyles.button} onPress={() => navigate('Home')}>
+        <Text style={mainStyles.buttonText}>Back to Home</Text>
       </TouchableOpacity>
+    
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  screenContainer: {
-    flex: 1,
-    backgroundColor: '#111',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 24,
-  },
-  screenTitle: {
-    color: '#fff',
-    fontSize: 22,
-    fontWeight: '700',
-    marginBottom: 12,
-  },
   teamMember: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -53,17 +44,5 @@ const styles = StyleSheet.create({
   teamMemberRole: {
     color: '#fff',
     fontSize: 13,
-  },
-  button: {
-    backgroundColor: '#222',
-    paddingVertical: 14,
-    paddingHorizontal: 28,
-    borderRadius: 8,
-    marginTop: 32,
-  },
-  buttonText: {
-    color: '#fff',
-    fontWeight: '600',
-    fontSize: 16,
   },
 });

@@ -5,13 +5,16 @@ const screens = [
   { name: 'Booking', label: 'Book a Carwash' },
   { name: 'Status', label: 'Order Status' },
   { name: 'Team', label: 'Our Team' },
-  { name: 'Profile', label: 'Clients' }, // Renamed from 'Profile' to 'Clients'
+  { name: 'Profile', label: 'Clients' },
+  { name: 'Empty', label: 'Victor Celorio' },
 ];
 
-export default function HomeScreen({ navigate }) {
+export default function HomeScreen({ navigation }) {
   return (
     <View style={styles.screenContainer}>
-      <Text style={styles.screenTitle}>Welcome to Uplift </Text>
+      <View style={styles.titleRow}>
+        <Text style={styles.mainTitle}>Welcome to Uplift</Text>
+      </View>
       <Text style={styles.screenText}>
         Hello, these are the screens we need for admin
       </Text>
@@ -20,7 +23,7 @@ export default function HomeScreen({ navigate }) {
           <TouchableOpacity
             key={s.name}
             style={styles.button}
-            onPress={() => navigate(s.name)}
+            onPress={() => navigation.navigate(s.name)}
           >
             <Text style={styles.buttonText}>{s.label}</Text>
           </TouchableOpacity>
@@ -38,11 +41,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 24,
   },
-  screenTitle: {
+  titleRow: {
+    width: '100%',
+    alignItems: 'flex-start',
+    marginBottom: 16,
+  },
+  mainTitle: {
     color: '#fff',
     fontSize: 22,
     fontWeight: '700',
-    marginBottom: 12,
   },
   screenText: {
     color: '#fff',

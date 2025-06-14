@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import FeatherIcon from '@expo/vector-icons/Feather';
 import FontAwesome from '@expo/vector-icons/FontAwesome5';
+import { mainStyles } from '../styles/MainStyles';
 
 const products = [
   {
@@ -98,7 +99,7 @@ export default function Example({ navigate }) {
       </View>
 
       {/* Move Customers title out of ScrollView */}
-      <Text style={styles.screenTitle}>Customers</Text>
+      <Text style={mainStyles.mainTitle}>Customers</Text>
       <ScrollView contentContainerStyle={styles.section}>
         {rows.map((row, rowIndex) => (
           <View key={rowIndex} style={styles.sectionRow}>
@@ -265,14 +266,6 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: '600',
     textDecorationLine: 'underline',
-  },
-  screenTitle: {
-    color: '#fff',
-    fontSize: 36,
-    fontWeight: 'bold',
-    marginBottom: 16,
-    marginTop: 16,
-    paddingHorizontal: 8,
   },
   center: {
     alignItems: 'center',
