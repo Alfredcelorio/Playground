@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import FeatherIcon from '@expo/vector-icons/Feather';
 import { mainStyles } from '../styles/MainStyles';
 
@@ -20,10 +20,6 @@ export default function TeamScreen({ navigate }) {
           <Text style={styles.teamMemberRole}>{member.role}</Text>
         </View>
       ))}
-      <TouchableOpacity style={mainStyles.button} onPress={() => navigate('Home')}>
-        <Text style={mainStyles.buttonText}>Back to Home</Text>
-      </TouchableOpacity>
-    
     </View>
   );
 }

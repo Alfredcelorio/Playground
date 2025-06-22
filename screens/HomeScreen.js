@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { mainStyles } from '../styles/MainStyles';
 
 const screens = [
   { name: 'Booking', label: 'Book a Carwash' },
@@ -12,8 +13,10 @@ const screens = [
 export default function HomeScreen({ navigation }) {
   return (
     <View style={styles.screenContainer}>
-      <View style={styles.titleRow}>
-        <Text style={styles.mainTitle}>Welcome to Uplift</Text>
+      <View style={mainStyles.titleRow}>
+        <Text style={mainStyles.mainTitle}>
+          Welcome to Uplift
+        </Text>
       </View>
       <Text style={styles.screenText}>
         Hello, these are the screens we need for admin
@@ -38,19 +41,10 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#111',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start', // Changed to position content at the top
     padding: 24,
   },
-  titleRow: {
-    width: '100%',
-    alignItems: 'flex-start',
-    marginBottom: 16,
-  },
-  mainTitle: {
-    color: '#fff',
-    fontSize: 22,
-    fontWeight: '700',
-  },
+ 
   screenText: {
     color: '#fff',
     fontSize: 16,

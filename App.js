@@ -11,6 +11,7 @@ import StatusScreen from './screens/StatusScreen';
 import TeamScreen from './screens/TeamScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import EmptyScreen from './screens/EmptyScreen'; // Import the EmptyScreen
+import CustomerDescription from './screens/CustomerDescription';
 
 const Stack = createStackNavigator();
 
@@ -26,6 +27,7 @@ export default function Example() {
           <Stack.Screen name="Team" component={TeamScreen} />
           <Stack.Screen name="Profile" component={ProfileScreen} />
           <Stack.Screen name="Empty" component={EmptyScreen} />
+          <Stack.Screen name="CustomerDescription" component={CustomerDescription} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaView>
