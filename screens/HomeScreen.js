@@ -1,13 +1,15 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { mainStyles } from '../styles/MainStyles';
+import ReceiptCustomer from './ReceiptCustomer';
 
 const screens = [
   { name: 'Booking', label: 'Book a Carwash' },
   { name: 'Status', label: 'Order Status' },
-  { name: 'Team', label: 'Our Team' },
+  { name: 'Team', label: 'Service details worker' },
   { name: 'Profile', label: 'Clients' },
-  { name: 'Empty', label: 'Victor Celorio' },
+  { name: 'Empty', label: 'Service Details Guest' },
+  { name: 'ReceiptCustomer', label: 'Receipt Service Details Customer Side' },
 ];
 
 export default function HomeScreen({ navigation }) {
@@ -70,3 +72,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 });
+
+// In your navigator (e.g., App.js):
+// <Stack.Screen name="ReceiptCustomer" component={ReceiptCustomer} />

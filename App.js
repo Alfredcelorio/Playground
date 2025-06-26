@@ -12,6 +12,7 @@ import TeamScreen from './screens/TeamScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import EmptyScreen from './screens/EmptyScreen'; // Import the EmptyScreen
 import CustomerDescription from './screens/CustomerDescription';
+import ReviewConfirmation from './screens/ReviewConfirmation';
 
 const Stack = createStackNavigator();
 
@@ -28,6 +29,7 @@ export default function Example() {
           <Stack.Screen name="Profile" component={ProfileScreen} />
           <Stack.Screen name="Empty" component={EmptyScreen} />
           <Stack.Screen name="CustomerDescription" component={CustomerDescription} />
+          <Stack.Screen name="ReviewConfirmation" component={ReviewConfirmation} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaView>

@@ -104,14 +104,14 @@ export default function CustomerDescription({ route }) {
             </View>
 
             {/* Customer Details Section */}
-            <View style={styles.stats}>
-              <View style={styles.statsRow}>
-                <View style={[styles.statsItem, { borderLeftWidth: 0 }]}> 
-                  <Text style={styles.statsItemText}>Name</Text>
-                  <Text style={styles.statsItemValue}>{customer.name}</Text>
+            <View style={styles.customerStats}>
+              <View style={styles.customerStatsRow}>
+                <View style={[styles.customerStatsItem, { borderLeftWidth: 0 }]}> 
+                  <Text style={styles.customerStatsItemText}>Name</Text>
+                  <Text style={styles.customerStatsItemValue}>{customer.name}</Text>
                 </View>
-                <View style={styles.statsItem}>
-                  <Text style={styles.statsItemText}>Phone</Text>
+                <View style={styles.customerStatsItem}>
+                  <Text style={styles.customerStatsItemText}>Phone</Text>
                   <TouchableOpacity
                     onPress={() => {
                       const phone = customer.phone || '+15551234567';
@@ -121,15 +121,15 @@ export default function CustomerDescription({ route }) {
                       }
                     }}
                   >
-                    <Text style={[styles.statsItemValue, { color: '#4c6cfd', textDecorationLine: 'underline' }]}> 
+                    <Text style={[styles.customerStatsItemValue, { color: '#4c6cfd', textDecorationLine: 'underline' }]}> 
                       {customer.phone || '+1 555-123-4567'}
                     </Text>
                   </TouchableOpacity>
                 </View>
               </View>
-              <View style={styles.statsRow}>
-                <View style={[styles.statsItem, { borderLeftWidth: 0 }]}> 
-                  <Text style={styles.statsItemText}>Address</Text>
+              <View style={styles.customerStatsRow}>
+                <View style={[styles.customerStatsItem, { borderLeftWidth: 0 }]}> 
+                  <Text style={styles.customerStatsItemText}>Address</Text>
                   <TouchableOpacity
                     onPress={() => {
                       const address = customer.address || '123 Main St, Miami, FL 33133';
@@ -137,30 +137,30 @@ export default function CustomerDescription({ route }) {
                       Linking.openURL(url);
                     }}
                   >
-                    <Text style={[styles.statsItemValue, { color: '#4c6cfd', textDecorationLine: 'underline', textAlign: 'center', width: '100%' }]}> 
+                    <Text style={[styles.customerStatsItemValue, { color: '#4c6cfd', textDecorationLine: 'underline', textAlign: 'center', width: '100%' }]}> 
                       {customer.address || '123 Main St, Miami, FL 33133'}
                     </Text>
                   </TouchableOpacity>
                 </View>
-                <View style={styles.statsItem}>
-                  <Text style={styles.statsItemText}>License Plate</Text>
-                  <Text style={styles.statsItemValue}>{customer.licensePlate || 'ABC-1234'}</Text>
+                <View style={styles.customerStatsItem}>
+                  <Text style={styles.customerStatsItemText}>License Plate</Text>
+                  <Text style={styles.customerStatsItemValue}>{customer.licensePlate || 'ABC-1234'}</Text>
                 </View>
               </View>
-              <View style={styles.statsRow}>
-                <View style={[styles.statsItem, { borderLeftWidth: 0 }]}> 
-                  <Text style={styles.statsItemText}>Recurrence</Text>
-                  <Text style={styles.statsItemValue}>{customer.recurrence || 'Monthly'}</Text>
+              <View style={styles.customerStatsRow}>
+                <View style={[styles.customerStatsItem, { borderLeftWidth: 0 }]}> 
+                  <Text style={styles.customerStatsItemText}>Recurrence</Text>
+                  <Text style={styles.customerStatsItemValue}>{customer.recurrence || 'Monthly'}</Text>
                 </View>
-                <View style={styles.statsItem}>
-                  <Text style={styles.statsItemText}>Type</Text>
-                  <Text style={styles.statsItemValue}>{customer.type || 'Sedan'}</Text>
+                <View style={styles.customerStatsItem}>
+                  <Text style={styles.customerStatsItemText}>Type</Text>
+                  <Text style={styles.customerStatsItemValue}>{customer.type || 'Sedan'}</Text>
                 </View>
               </View>
-              <View style={styles.statsRow}>
-                <View style={[styles.statsItem, { borderLeftWidth: 0 }]}> 
-                  <Text style={styles.statsItemText}>Last Wash</Text>
-                  <Text style={styles.statsItemValue}>{customer.lastWash}</Text>
+              <View style={styles.customerStatsRow}>
+                <View style={[styles.customerStatsItem, { borderLeftWidth: 0 }]}> 
+                  <Text style={styles.customerStatsItemText}>Last Wash</Text>
+                  <Text style={styles.customerStatsItemValue}>{customer.lastWash}</Text>
                 </View>
               </View>
             </View>
@@ -252,29 +252,29 @@ const styles = StyleSheet.create({
     height: '100%',
     resizeMode: 'cover',
   },
-  stats: {
+  customerStats: {
     backgroundColor: '#f9f9f9',
     borderRadius: 12,
     overflow: 'hidden',
     marginBottom: 24,
   },
-  statsRow: {
+  customerStatsRow: {
     flexDirection: 'row',
     borderBottomWidth: 1,
     borderBottomColor: '#eee',
   },
-  statsItem: {
+  customerStatsItem: {
     flex: 1,
     padding: 16,
     alignItems: 'center',
   },
-  statsItemText: {
+  customerStatsItemText: {
     fontSize: 14,
     fontWeight: '500',
     color: '#333',
     marginBottom: 4,
   },
-  statsItemValue: {
+  customerStatsItemValue: {
     fontSize: 16,
     fontWeight: '700',
     color: '#1d1d1d',

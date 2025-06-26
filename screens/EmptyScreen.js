@@ -1,97 +1,322 @@
 import React from 'react';
-import { View, Text, ScrollView, Linking, TouchableOpacity } from 'react-native';
-import { mainStyles } from '../styles/MainStyles';
-import { useNavigation } from '@react-navigation/native';
+import {
+  StyleSheet,
+  View,
+  SafeAreaView,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  Linking,
+  TextInput,
+} from 'react-native';
+import FeatherIcon from '@expo/vector-icons/Feather';
 
-// Victor Celorio bio screen
-const VictorCelorioScreen = () => {
-  const navigation = useNavigation();
+export default function Example({ navigation }) {
   return (
-    <ScrollView style={{ flex: 1, backgroundColor: '#111' }}>
-      {/* Back to Home Button */}
-      <View style={{ padding: 20, paddingBottom: 0 }}>
+    <View style={{ flex: 1 }}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
+        <View style={styles.container}>
+          <View style={styles.header}>
+            <View style={styles.headerAction}>
+              <TouchableOpacity
+                onPress={() => {
+                  // handle onPress
+                }}>
+                <FeatherIcon
+                  color="#0e0e0e"
+                  name="x"
+                  size={24} />
+              </TouchableOpacity>
+            </View>
+
+            <Text numberOfLines={1} style={styles.headerTitle}>
+             Uplift service
+            </Text>
+
+            <View
+              style={[styles.headerAction, { alignItems: 'flex-end' }]} />
+          </View>
+
+          <ScrollView
+            contentContainerStyle={styles.receipt}
+            showsVerticalScrollIndicator={false}>
+            <View style={styles.receiptLogo}>
+              <FeatherIcon color="#fff" name="codepen" size={32} />
+            </View>
+
+            <Text style={styles.receiptTitle}>
+              Alvaro Celorio
+            </Text>
+
+            <Text style={styles.receiptSubtitle}>Invoice #0012-2832</Text>
+
+            {/* Removed receiptPrice section */}
+
+            {/* Removed receiptDescription, avatarWrapper, and divider sections */}
+
+            <View style={styles.details}>
+              <Text style={styles.detailsTitle}>Service Details</Text>
+              <View style={styles.detailsRow}>
+                <Text style={styles.detailsField}>Created At</Text>
+                <Text style={styles.detailsValue}>Wed Feb 26 2025</Text>
+              </View>
+              <View style={styles.detailsRow}>
+                <Text style={styles.detailsField}>Scheduled Date</Text>
+                <Text style={styles.detailsValue}>Tue Feb 25 2025</Text>
+              </View>
+              <View style={styles.detailsRow}>
+                <Text style={styles.detailsField}>Scheduled Time</Text>
+                <Text style={styles.detailsValue}>10:00 AM</Text>
+              </View>
+              <View style={styles.detailsRow}>
+                <Text style={styles.detailsField}>Email</Text>
+                <Text style={styles.detailsValue}>Alvaro@uplifttheapp.com</Text>
+              </View>
+              <View style={styles.detailsRow}>
+                <Text style={styles.detailsField}>Phone</Text>
+                <TouchableOpacity
+                  onPress={() => {
+                    const phone = '+15551234567';
+                    const tel = phone.replace(/[^+\d]/g, '');
+                    if (tel) {
+                      Linking.openURL(`tel:${tel}`);
+                    }
+                  }}
+                >
+                  <Text style={[styles.detailsValue, { color: '#4c6cfd', textDecorationLine: 'underline' }]}>+1 555-123-4567</Text>
+                </TouchableOpacity>
+              </View>
+              <View style={styles.detailsRow}>
+                <Text style={styles.detailsField}>Name</Text>
+                <Text style={styles.detailsValue}>Alvaro</Text>
+              </View>
+              <View style={styles.detailsRow}>
+                <Text style={styles.detailsField}>Vehicle</Text>
+                <Text style={styles.detailsValue}>Tesla Model S - 747tks</Text>
+              </View>
+              <View style={styles.detailsRow}>
+                <Text style={styles.detailsField}>Address</Text>
+                <TouchableOpacity
+                  onPress={() => {
+                    const address = '123 Main St, Miami, FL 33133';
+                    const url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+                    Linking.openURL(url);
+                  }}
+                >
+                  <Text style={[styles.detailsValue, { color: '#4c6cfd', textDecorationLine: 'underline' }]}>123 Main St, Miami, FL 33133</Text>
+                </TouchableOpacity>
+              </View>
+              <View style={styles.detailsRow}>
+                <Text style={styles.detailsField}>Last Service Date</Text>
+                <Text style={styles.detailsValue}>Mon Mar 10 2025</Text>
+              </View>
+              <View style={styles.detailsRow}>
+                <Text style={styles.detailsField}>Last Wash</Text>
+                <Text style={styles.detailsValue}>27 days ago</Text>
+              </View>
+              <View style={styles.detailsRow}>
+                <Text style={styles.detailsField}>Type</Text>
+                <Text style={styles.detailsValue}>sedan</Text>
+              </View>
+              {/* Completed Photos Link */}
+              <View style={styles.detailsRow}>
+                <Text style={styles.detailsField}>Completed Photos</Text>
+                <TouchableOpacity
+                  onPress={() => {
+                    const url = 'https://your-photo-gallery-link.com';
+                    Linking.openURL(url);
+                  }}
+                >
+                  <Text style={[styles.detailsValue, { color: '#4c6cfd', textDecorationLine: 'underline' }]}>View Photos</Text>
+                </TouchableOpacity>
+              </View>
+              {/* Review Section */}
+              <View style={styles.detailsRow}>
+                <Text style={styles.detailsField}>Leave a Review</Text>
+                <View style={{flexDirection: 'row', justifyContent: 'flex-end'}}>
+                  {[1,2,3,4,5].map((star) => (
+                    <FeatherIcon key={star} name="star" size={24} color="#8338ec" style={{marginHorizontal: 1}} />
+                  ))}
+                </View>
+              </View>
+              <View style={styles.detailsRow}>
+                <Text style={styles.detailsField}>Comments</Text>
+                <View style={{flex: 1}}>
+                  <TextInput
+                    style={[styles.detailsValue, { color: '#444', textAlign: 'right', borderWidth: 1, borderColor: '#ccc', borderRadius: 6, padding: 8, minHeight: 40 }]}
+                    placeholder="Add your comments here..."
+                    placeholderTextColor="#888"
+                    multiline
+                  />
+                </View>
+              </View>
+            </View>
+          </ScrollView>
+        </View>
+      </SafeAreaView>
+
+      {/* Only one option at the bottom to complete review */}
+      <View style={styles.overlay}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('Home')}
-          style={{ marginBottom: 10, alignSelf: 'flex-start' }}
-        >
-          <Text style={{ color: '#3b82f6', fontSize: 16, textDecorationLine: 'underline' }}>
-            ← Back to Home
-          </Text>
+          onPress={() => {
+            navigation.navigate('ReviewConfirmation');
+          }}>
+          <View style={styles.btnSecondary}>
+            <Text style={styles.btnSecondaryText}>Complete Review</Text>
+          </View>
         </TouchableOpacity>
       </View>
-      {/* Hero Section */}
-      <View style={{ backgroundColor: '#111', padding: 20, alignItems: 'flex-start', paddingTop: 0 }}>
-        <Text style={[mainStyles.mainTitle, { textAlign: 'left', marginTop: 0 }]}>
-          Víctor Celorio
-        </Text>
-        <Text style={[mainStyles.screenText, { color: '#e5e7eb', fontSize: 18, textAlign: 'justify' }]}>
-          Mexican-American Inventor, Author, and Air-Cleaning Visionary
-        </Text>
-      </View>
-
-      {/* About Section */}
-      <View style={{ padding: 20 }}>
-        <Text style={[mainStyles.screenTitle, { color: '#fff', fontSize: 24, marginBottom: 10 }]}>About</Text>
-        <Text style={[mainStyles.screenText, { color: '#ccc', fontSize: 16, lineHeight: 24, textAlign: 'justify' }]}>
-          Víctor Manuel Celorio Garrido, born July 27, 1957, in Mexico City, is a Mexican-American author, entrepreneur, inventor, and former union organizer. Based in Gainesville, Florida, he’s best known for inventing InstaBook, a pioneering digital printing technology. A man of many talents, he’s also a passionate writer and founder of Pulmón Urbano, a nonprofit tackling urban air pollution.
-        </Text>
-      </View>
-
-      {/* Inventions Section */}
-      <View style={{ padding: 20 }}>
-        <Text style={[mainStyles.screenTitle, { color: '#fff', fontSize: 24, marginBottom: 10 }]}>Inventions</Text>
-        <View>
-          <Text style={{ fontSize: 18, fontWeight: '600', color: '#fff', marginTop: 10, marginBottom: 5 }}>InstaBook</Text>
-          <Text style={[mainStyles.screenText, { color: '#ccc', fontSize: 16, lineHeight: 24, textAlign: 'justify' }]}>
-            Celorio’s InstaBook, or Book On Demand, revolutionized publishing with on-demand digital printing. He patented this tech and founded InstaBook Corporation in the 90s, creating a network of print-on-demand centers starting in Mexico City. This guy basically made instant books a thing.
-          </Text>
-        </View>
-        <View style={{ marginTop: 10 }}>
-          <Text style={{ fontSize: 18, fontWeight: '600', color: '#fff', marginTop: 10, marginBottom: 5 }}>Kinetic Lung</Text>
-          <Text style={[mainStyles.screenText, { color: '#ccc', fontSize: 16, lineHeight: 24, textAlign: 'justify' }]}>
-            In 2019, Celorio patented Kinetic Lung, a tech that uses kinetic energy to filter toxic PM2.5 and PM10 particles from urban air. Through his nonprofit Pulmón Urbano, he deployed 300 Residential Lungs and 10 Solar Lungs in Mexicali, cleaning millions of cubic meters of air daily and slashing pollution by 35% by October 2019. Bad air? Not on his watch.
-          </Text>
-        </View>
-      </View>
-
-      {/* Bibliography Section */}
-      <View style={{ padding: 20 }}>
-        <Text style={[mainStyles.screenTitle, { color: '#fff', fontSize: 24, marginBottom: 10 }]}>Bibliography</Text>
-        <Text style={[mainStyles.screenText, { color: '#ccc', fontSize: 16, lineHeight: 24, textAlign: 'justify' }]}>
-          Celorio’s love for writing started young, publishing his first short story at 14. Here’s a rundown of his six published books:
-        </Text>
-        <View style={{ marginTop: 10 }}>
-          <Text style={{ fontSize: 16, color: '#ccc', marginBottom: 5 }}>
-            • <Text style={{ fontWeight: 'bold', color: '#fff' }}>Espejo de Obsidiana</Text> (1981, ISBN 1-891355-09-0) - Short-story collection
-          </Text>
-          <Text style={{ fontSize: 16, color: '#ccc', marginBottom: 5 }}>
-            • <Text style={{ fontWeight: 'bold', color: '#fff' }}>El Unicornio Azul</Text> (1985, ISBN 1-58396-063-5) - Novel, fiction
-          </Text>
-          <Text style={{ fontSize: 16, color: '#ccc', marginBottom: 5 }}>
-            • <Text style={{ fontWeight: 'bold', color: '#fff' }}>The Blue Unicorn</Text> (1990, ISBN 1-58396-064-3) - Novel, fiction
-          </Text>
-          <Text style={{ fontSize: 16, color: '#ccc', marginBottom: 5 }}>
-            • <Text style={{ fontWeight: 'bold', color: '#fff' }}>Proyecto Mexico</Text> (1995, ISBN 1-58396-059-7) - Political essay, one of the first books distributed online
-          </Text>
-          <Text style={{ fontSize: 16, color: '#ccc', marginBottom: 5 }}>
-            • <Text style={{ fontWeight: 'bold', color: '#fff' }}>Blood Relatives</Text> (1997, ISBN 1-891355-66-X) - Fiction
-          </Text>
-          <Text style={{ fontSize: 16, color: '#ccc', marginBottom: 5 }}>
-            • <Text style={{ fontWeight: 'bold', color: '#fff' }}>Twisted Gods</Text> (1999, ISBN 1-891355-91-0) - Fiction thriller
-          </Text>
-        </View>
-      </View>
-
-      {/* Footer */}
-      <View style={{ padding: 20, alignItems: 'center', backgroundColor: '#1f2937' }}>
-        <TouchableOpacity onPress={() => Linking.openURL('http://www.victorcelorio.com')}>
-          <Text style={{ fontSize: 16, color: '#3b82f6', textDecorationLine: 'underline' }}>
-            Learn more at victorcelorio.com
-          </Text>
-        </TouchableOpacity>
-      </View>
-    </ScrollView>
+    </View>
   );
-};
+}
 
-export default VictorCelorioScreen;
+const styles = StyleSheet.create({
+  container: {
+    paddingVertical: 0,
+    paddingHorizontal: 16,
+    flexGrow: 1,
+    flexShrink: 1,
+    flexBasis: 0,
+  },
+  overlay: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    backgroundColor: '#fff',
+    flexDirection: 'column',
+    alignItems: 'stretch',
+    paddingTop: 12,
+    paddingHorizontal: 16,
+    paddingBottom: 48,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+    elevation: 3,
+  },
+  /** Header */
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  headerAction: {
+    width: 40,
+    height: 40,
+    alignItems: 'flex-start',
+    justifyContent: 'center',
+  },
+  headerTitle: {
+    fontSize: 17,
+    fontWeight: '600',
+    color: '#000',
+    flexGrow: 1,
+    flexShrink: 1,
+    flexBasis: 0,
+    textAlign: 'center',
+  },
+  /** Receipt */
+  receipt: {
+    alignItems: 'center',
+    paddingTop: 16,
+    paddingBottom: 140,
+  },
+  receiptLogo: {
+    width: 60,
+    height: 60,
+    borderRadius: 9999,
+    marginBottom: 12,
+    backgroundColor: '#0e0e0e',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  receiptTitle: {
+    fontSize: 21,
+    fontWeight: '600',
+    color: '#151515',
+    marginBottom: 2,
+  },
+  receiptSubtitle: {
+    fontSize: 13,
+    lineHeight: 20,
+    color: '#818181',
+    marginBottom: 12,
+  },
+  /** Details */
+  details: {
+    width: '100%',
+    flexDirection: 'column',
+    alignItems: 'stretch',
+  },
+  detailsTitle: {
+    fontSize: 17,
+    fontWeight: '600',
+    color: '#222',
+    marginBottom: 16,
+  },
+  detailsRow: {
+    marginBottom: 14,
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    justifyContent: 'space-between',
+  },
+  detailsField: {
+    fontSize: 16,
+    lineHeight: 20,
+    fontWeight: '500',
+    color: '#8c8c8c',
+    flexGrow: 1,
+    flexShrink: 1,
+    flexBasis: 0,
+  },
+  detailsValue: {
+    fontSize: 15,
+    lineHeight: 20,
+    fontWeight: '600',
+    color: '#444',
+    flexGrow: 1,
+    flexShrink: 1,
+    flexBasis: 0,
+    textAlign: 'right',
+  },
+  /** Button */
+  btn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 8,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderWidth: 1,
+    backgroundColor: '#8338ec',
+    borderColor: '#8338ec',
+    marginBottom: 12,
+  },
+  btnText: {
+    fontSize: 18,
+    lineHeight: 26,
+    fontWeight: '600',
+    color: '#fff',
+  },
+  btnSecondary: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 8,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderWidth: 1,
+    backgroundColor: 'transparent',
+    borderColor: '#8338ec',
+  },
+  btnSecondaryText: {
+    fontSize: 18,
+    lineHeight: 26,
+    fontWeight: '600',
+    color: '#8338ec',
+  },
+});
