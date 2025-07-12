@@ -13,6 +13,8 @@ import ProfileScreen from './screens/ProfileScreen';
 import EmptyScreen from './screens/EmptyScreen'; // Import the EmptyScreen
 import CustomerDescription from './screens/CustomerDescription';
 import ReviewConfirmation from './screens/ReviewConfirmation';
+import CoverageScreen from './screens/CoverageScreen';
+import CoverageConfirmation from './screens/CoverageConfirmation'; // Add this import
 
 const Stack = createStackNavigator();
 
@@ -30,6 +32,8 @@ export default function Example() {
           <Stack.Screen name="Empty" component={EmptyScreen} />
           <Stack.Screen name="CustomerDescription" component={CustomerDescription} />
           <Stack.Screen name="ReviewConfirmation" component={ReviewConfirmation} />
+          <Stack.Screen name="Coverage" component={CoverageScreen} />
+          <Stack.Screen name="CoverageConfirmation" component={CoverageConfirmation} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaView>

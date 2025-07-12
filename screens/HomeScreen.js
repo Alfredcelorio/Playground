@@ -10,6 +10,7 @@ const screens = [
   { name: 'Profile', label: 'Clients' },
   { name: 'Empty', label: 'Service Details Guest' },
   { name: 'ReceiptCustomer', label: 'Receipt Service Details Customer Side' },
+  { name: 'Coverage', label: 'Check if we cover your area' }, // Added new screen
 ];
 
 export default function HomeScreen({ navigation }) {

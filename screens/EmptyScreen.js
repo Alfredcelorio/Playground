@@ -135,7 +135,18 @@ export default function Example({ navigation }) {
                 <Text style={styles.detailsField}>Leave a Review</Text>
                 <View style={{flexDirection: 'row', justifyContent: 'flex-end'}}>
                   {[1,2,3,4,5].map((star) => (
-                    <FeatherIcon key={star} name="star" size={24} color="#8338ec" style={{marginHorizontal: 1}} />
+                    <View
+                      key={star}
+                      style={{
+                        borderWidth: 1,
+                        borderColor: '#000',
+                        borderRadius: 4,
+                        marginHorizontal: 1,
+                        padding: 2,
+                      }}
+                    >
+                      <FeatherIcon name="star" size={24} color="#8338ec" />
+                    </View>
                   ))}
                 </View>
               </View>
@@ -311,12 +322,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     borderWidth: 1,
     backgroundColor: 'transparent',
-    borderColor: '#8338ec',
+    borderColor: '#000', // changed from #8338ec to black
   },
   btnSecondaryText: {
     fontSize: 18,
     lineHeight: 26,
     fontWeight: '600',
-    color: '#8338ec',
+    color: '#000', // changed from #8338ec to black
   },
 });

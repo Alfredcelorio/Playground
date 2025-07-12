@@ -266,15 +266,15 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderWidth: 1,
-    backgroundColor: '#8338ec',
-    borderColor: '#8338ec',
+    backgroundColor: '#000', // changed from #8338ec to black
+    borderColor: '#000',     // changed from #8338ec to black
     marginBottom: 12,
   },
   btnText: {
     fontSize: 18,
     lineHeight: 26,
     fontWeight: '600',
-    color: '#fff',
+    color: '#fff', // ensure text is white
   },
   btnSecondary: {
     flexDirection: 'row',
@@ -285,12 +285,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     borderWidth: 1,
     backgroundColor: 'transparent',
-    borderColor: '#8338ec',
+    borderColor: '#000', // changed from #8338ec to black
   },
   btnSecondaryText: {
     fontSize: 18,
     lineHeight: 26,
     fontWeight: '600',
-    color: '#8338ec',
+    color: '#000', // changed from #8338ec to black
   },
 });
